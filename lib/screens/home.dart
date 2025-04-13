@@ -4,8 +4,6 @@ import 'package:wellingtone/widgets/drawer.dart';
 import 'package:wellingtone/widgets/section_container.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-
-
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
@@ -14,43 +12,41 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
-  backgroundColor: Colors.black,
-  iconTheme: const IconThemeData(color: Colors.white),
-  elevation: 0,
-  title: Row(
-    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    children: [
-      const SizedBox(),
-      GestureDetector(
-        onTap: () async {
-          final Uri whatsappUrl = Uri.parse('https://wa.me/254743714202');
-          if (await canLaunch(whatsappUrl.toString())) {
-            await launch(whatsappUrl.toString());
-          } else {
-            throw 'Could not launch $whatsappUrl';
-          }
-        },
-        child: const Text(
-          "Wellingtone",
-          style: TextStyle(
-            color: Colors.amber,
-            fontWeight: FontWeight.bold,
-            fontSize: 18,
-            shadows: [
-              Shadow(
-                blurRadius: 4,
-                color: Colors.amberAccent,
-                offset: Offset(1, 1),
+        backgroundColor: Colors.black,
+        iconTheme: const IconThemeData(color: Colors.white),
+        elevation: 0,
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            const SizedBox(),
+            GestureDetector(
+              onTap: () async {
+                final Uri whatsappUrl = Uri.parse('https://wa.me/254743714202');
+                if (await canLaunch(whatsappUrl.toString())) {
+                  await launch(whatsappUrl.toString());
+                } else {
+                  throw 'Could not launch $whatsappUrl';
+                }
+              },
+              child: const Text(
+                "Wellingtone",
+                style: TextStyle(
+                  color: Colors.amber,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                  shadows: [
+                    Shadow(
+                      blurRadius: 4,
+                      color: Colors.amberAccent,
+                      offset: Offset(1, 1),
+                    ),
+                  ],
+                ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
-    ],
-  ),
-),
-
-
       drawer: const MyDrawer(),
       body: SingleChildScrollView(
         child: Column(
@@ -61,66 +57,67 @@ class HomeScreen extends StatelessWidget {
                 return Padding(
                   padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 20),
                   child: isMobile
-                      ? Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            _AnimatedReveal(
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(20),
-                                child: Image.asset(
-                                  'assets/images/me.jpg',
-                                  height: 240,
-                                  width: 240,
-                                  fit: BoxFit.cover,
+                      ? Center(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              _AnimatedReveal(
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(20),
+                                  child: Image.asset(
+                                    'assets/images/me.jpg',
+                                    height: 240,
+                                    width: 240,
+                                    fit: BoxFit.cover,
+                                  ),
                                 ),
                               ),
-                            ),
-                            const SizedBox(height: 20),
-                            _AnimatedReveal(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  const Text(
-                                    'Hi, I\'m Wellingtone ',
-                                    style: TextStyle(
-                                      fontSize: 32,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white,
+                              const SizedBox(height: 20),
+                              _AnimatedReveal(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    const Text(
+                                      'Hi, I\'m Wellingtone ',
+                                      style: TextStyle(
+                                        fontSize: 32,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                      textAlign: TextAlign.center,
                                     ),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                  const SizedBox(height: 10),
-                                  Text(
-                                    'Flutter Dev • Tech Founder • Special Needs Educator\n• Web Designer • Creative Thinker \nI build smart, scalable, and beautiful solutions.',
-                                    style: TextStyle(fontSize: 16, color: Colors.grey[300]),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                  const SizedBox(height: 20),
-                                  Wrap(
-                                    spacing: 12,
-                                    runSpacing: 10,
-                                    alignment: WrapAlignment.center,
-                                    children: [
-                                      _heroButton('My Resume', () {}),
-                                      _heroButton('View Projects', () {
-                                        Navigator.pushNamed(context, '/projects');
-                                      }),
-                                      _heroButton('Contact Me', () {
-                                        Navigator.pushNamed(context, '/contact');
-                                      }),
-                                    ],
-                                  ),
-                                ],
+                                    const SizedBox(height: 10),
+                                    Text(
+                                      'Flutter Dev • Tech Founder • Special Needs Educator\n• Web Designer • Creative Thinker \nI build smart, scalable, and beautiful solutions.',
+                                      style: TextStyle(fontSize: 16, color: Colors.grey[300]),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                    const SizedBox(height: 20),
+                                    Wrap(
+                                      spacing: 12,
+                                      runSpacing: 10,
+                                      alignment: WrapAlignment.center,
+                                      children: [
+                                        _heroButton('View Projects', () {
+                                          Navigator.pushNamed(context, '/projects');
+                                        }),
+                                        _heroButton('Contact Me', () {
+                                          Navigator.pushNamed(context, '/contact');
+                                        }),
+                                      ],
+                                    ),
+                                  ],
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         )
-                      : Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Expanded(
-                              child: _AnimatedReveal(
+                      : Center(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              _AnimatedReveal(
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
@@ -141,7 +138,6 @@ class HomeScreen extends StatelessWidget {
                                     Wrap(
                                       spacing: 12,
                                       children: [
-                                        _heroButton('My Resume', () {}),
                                         _heroButton('View Projects', () {
                                           Navigator.pushNamed(context, '/projects');
                                         }),
@@ -153,20 +149,20 @@ class HomeScreen extends StatelessWidget {
                                   ],
                                 ),
                               ),
-                            ),
-                            const SizedBox(width: 40),
-                            _AnimatedReveal(
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(20),
-                                child: Image.asset(
-                                  'assets/images/me.jpg',
-                                  height: 280,
-                                  width: 280,
-                                  fit: BoxFit.cover,
+                              const SizedBox(width: 30), // Adjusted gap between bio and photo
+                              _AnimatedReveal(
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(20),
+                                  child: Image.asset(
+                                    'assets/images/me.jpg',
+                                    height: 280,
+                                    width: 280,
+                                    fit: BoxFit.cover,
+                                  ),
                                 ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                 );
               },
@@ -174,29 +170,25 @@ class HomeScreen extends StatelessWidget {
             const SizedBox(height: 40),
             const SectionContainer(
               title: 'About Me',
-              description:
-                  'I\'m a passionate Flutter developer with a background in design and backend. I specialize in building beautiful and performant apps.',
+              description: 'I\'m a passionate Flutter developer with a background in design and backend. I specialize in building beautiful and performant apps.',
               buttonLabel: 'Learn More',
               routeName: '/about',
             ),
             const SectionContainer(
               title: 'Skills',
-              description:
-                  'Flutter, Dart, Firebase, Node.js, REST APIs, MySQL, Git, UI/UX Design, Responsive Web.',
+              description: 'Flutter, Dart, Firebase, Node.js, REST APIs, MySQL, Git, UI/UX Design, Responsive Web.',
               buttonLabel: 'View All Skills',
               routeName: '/skills',
             ),
             const SectionContainer(
               title: 'Projects',
-              description:
-                  'Take a look at some of the amazing projects I\'ve built with Flutter and web technologies.',
+              description: 'Take a look at some of the amazing projects I\'ve built with Flutter and web technologies.',
               buttonLabel: 'See Projects',
               routeName: '/projects',
             ),
             const SectionContainer(
               title: 'Get in Touch',
-              description:
-                  'Interested in working together or have any questions? Let\'s connect and chat!',
+              description: 'Interested in working together or have any questions? Let\'s connect and chat!',
               buttonLabel: 'Contact Me',
               routeName: '/contact',
             ),

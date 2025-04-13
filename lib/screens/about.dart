@@ -8,7 +8,7 @@ class AboutScreen extends StatelessWidget {
   const AboutScreen({Key? key}) : super(key: key);
 
   void _downloadResume() async {
-    const url = 'https://yourdomain.com/resume.pdf'; // Replace with your actual resume URL
+    const url = 'https://drive.google.com/file/d/11UMLz4XzfDV5T5oA-aYF4a2BQX2uv5Ja/view?usp=sharing'; //  resume URL
     final uri = Uri.parse(url);
     if (await canLaunchUrl(uri)) {
       await launchUrl(uri, mode: LaunchMode.externalApplication);

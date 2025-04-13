@@ -34,13 +34,23 @@ dependencies:
   # Add animated_widgets here
   animated_widgets: ^1.1.0
 
+  syncfusion_flutter_pdfviewer: ^24.1.41
+
   url_launcher: ^6.2.5
+
+  flutter_html: ^3.0.0
    
   animate_do: ^2.1.0
+
+  flutter_spinkit: ^5.2.0
 
   http: ^1.3.0
 
   visibility_detector: ^0.4.0+2
+
+  flutter_pdfview: ^1.2.7
+  
+  path_provider: ^2.0.15
 
   font_awesome_flutter: ^10.5.0 # or latest version
     # The following adds the Cupertino Icons font to your application.
@@ -78,6 +88,7 @@ flutter:
     - assets/images/luxretreat.png
     - assets/images/netoncare.png
     - assets/images/primelink.png
+    - assets/my_cv.pdf
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
