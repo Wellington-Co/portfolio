@@ -1,9 +1,5 @@
 #!/bin/bash
-
-# Install Flutter
-git clone https://github.com/flutter/flutter.git -b stable --depth 1
-export PATH="$PATH:`pwd`/flutter/bin"
-flutter doctor
-
-# Run flutter build web
-flutter build web
+flutter channel stable
+flutter upgrade
+flutter config --enable-web
+flutter build web --release
