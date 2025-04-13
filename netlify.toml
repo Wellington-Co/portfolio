@@ -1,6 +1,0 @@
-[build]
-  command = "bash ./build.sh"
-  publish = "build/web"
-
-[[plugins]]
-  package = "@netlify/plugin-flutter"
