@@ -1,3 +1,2 @@
 [build]
-  command = "bash ./build.sh"
-  publish = "build/web"  # This should match the directory output by the Flutter build command
+  command = "bash build.sh"

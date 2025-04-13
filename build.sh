@@ -1,17 +1,18 @@
 #!/bin/bash
-echo "Starting Flutter Web Build"
 
+echo "🔧 Setting up Flutter"
 flutter channel stable
 flutter upgrade
 flutter config --enable-web
-flutter clean  # Clean the build before building again
 
-# Build the web project and check if the build folder is created
+echo "🧹 Cleaning build"
+flutter clean
+
+echo "🚀 Building Flutter Web"
 flutter build web --release
 
-if [ -d "build/web" ]; then
-  echo "Build was successful, build/web directory exists"
-else
-  echo "Build failed or build/web directory does not exist"
-  exit 1  # Exit with error if the build directory is not found
-fi
+echo "📦 Moving build to public folder"
+mkdir -p public
+cp -r build/web/* public/
+
+echo "✅ Build complete"
